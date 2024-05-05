@@ -1,8 +1,10 @@
 # syntax=docker/dockerfile:1
-FROM drupal:10.2.6-php8.3-fpm-alpine3.19
+FROM drupal:10.2.6-php8.3-apache-bookworm
 
-RUN apk update && apk upgrade && apk add --no-cache \
+RUN apt update && apt upgrade -y \
+    && apt-get install -y \
     openssl \
     unzip \
     zip \
-    postgresql16-client
+    postgresql-client-15 \
+    && apt clean 

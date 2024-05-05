@@ -25,6 +25,8 @@ version of Drupal or the cutting edge version of Drupal.
 
 
     aviumlabs/drupal:<version | latest>-alpine
+   
+    aviumlabs/drupal:<version | latest>-bookworm
 
 
 Where version is either numeric based on the Drupal version or the literal 
@@ -35,6 +37,8 @@ Where version is either numeric based on the Drupal version or the literal
 
 
     aviumlabs/drupal:<version | latest>-drupal<version>-alpine
+
+    aviumlabs/drupal:<version | latest>-drupal<version>-bookworm
 
 
 ## Build
@@ -47,6 +51,8 @@ The image defaults to building the latest version of Drupal.
 
 
     $ docker build --no-cache -t aviumlabs/drupal:latest-alpine .
+
+    $ docker build --no-cache -t aviumlabs/drupal:latest-bookworm .
 
 
 Update the base image:
