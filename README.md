@@ -134,3 +134,5 @@ Internal notes for pushing images to Docker Hub.
 
  
     $ docker push aviumlabs/drupal:latest-alpine  
+
+    $ docker push aviumlabs/drupal:latest-bookworm
