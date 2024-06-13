@@ -3,42 +3,24 @@
 
 This repo builds a Drupal docker image with a few additional utilities.
 
-This image is based on the Drupal Alpine docker image.   
+This image is based on the Drupal 10.x Bookworm docker image.   
 
 
 ## Naming Convention
 
 
-The naming convention is branched into **Standard** and **Extended** and is 
-based on similar projects based on the Alpine Linux distribution, where 
-`-alpine` is appended to the end of the tag.  
-
-
-The **Standard** branch is based on the latest stable version of Drupal 
-provided by the Drupal Alpine docker image.   
-
-The **Extended** branch may either be based on the previous stable 
-version of Drupal or the cutting edge version of Drupal.   
+The **Standard** naming convention is currently a flat naming convention with 
+either a version number or the literal `latest`.
 
 
 ### Standard Naming Convention
 
 
-    aviumlabs/drupal:<version | latest>-alpine
-   
     aviumlabs/drupal:<version | latest>-bookworm
 
 
 Where version is either numeric based on the Drupal version or the literal 
 'latest'.  
-
-
-### Extended Naming Convention
-
-
-    aviumlabs/drupal:<version | latest>-drupal<version>-alpine
-
-    aviumlabs/drupal:<version | latest>-drupal<version>-bookworm
 
 
 ## Build
@@ -47,42 +29,33 @@ Where version is either numeric based on the Drupal version or the literal
 ### Latest
 
 
-The image defaults to building the latest version of Drupal.
+The image defaults to building the latest version of Drupal specified in the 
+`FROM` field.
 
 
-    $ docker build --no-cache -t aviumlabs/drupal:latest-alpine .
-
-    $ docker build --no-cache -t aviumlabs/drupal:latest-bookworm .
+    docker build --no-cache -t aviumlabs/drupal:latest-bookworm .
 
 
 Update the base image:
 
 
-    $ docker build --pull --no-cache -t aviumlabs/drupal:latest-alpine .
+    docker build --pull --no-cache -t aviumlabs/drupal:latest-bookworm .
 
  
 ### Specific Version
 
 
 To build a specific version of Drupal; edit the Dockerfile and change 
-version to the one you want to build:   
-
+the `version` in the `FROM` field to the version you want to build.  
 
 
 ## Run
 
 
-Run the docker image and confirm alpine version, postgresql client version:
+To run a Docker container based on this image that will be deleted when you exit:
 
 
-    $ docker run -it --rm aviumlabs/drupal:latest-alpine /bin/sh
-
-    /opt # cat /etc/alpine-release
-
-
->
-> 3.19.1
->
+    docker run -it --rm aviumlabs/drupal:latest-bookworm /bin/bash
 
 
     /opt # psql --version
@@ -119,7 +92,7 @@ The aviumlabs/drupal-compose repo is also a template repository.
 
 The services included are:  
 - PostgreSQL 16.2  
-- Drupal 10.2.6 or later  
+- Drupal 10.2.7 or later  
 
 
 ## Project Notes
@@ -130,9 +103,5 @@ The services included are:
 
 Internal notes for pushing images to Docker Hub.  
 
-    $ docker push aviumlabs/drupal:<tagname>-alpine  
-
- 
-    $ docker push aviumlabs/drupal:latest-alpine  
 
     $ docker push aviumlabs/drupal:latest-bookworm
