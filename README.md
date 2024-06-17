@@ -62,7 +62,7 @@ To run a Docker container based on this image that will be deleted when you exit
 
 
 > 
-> psql (PostgreSQL) 16.2
+> psql (PostgreSQL) 16.3
 > 
 
 
@@ -91,7 +91,7 @@ The aviumlabs/drupal-compose repo is also a template repository.
 
 
 The services included are:  
-- PostgreSQL 16.2  
+- PostgreSQL 16.3 or later
 - Drupal 10.2.7 or later  
 
 
